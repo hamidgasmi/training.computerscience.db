@@ -1,3 +1,9 @@
+--5. Tables
+---- 5.1. Select existing tables
+SELECT * 
+  FROM information_schema.tables
+ WHERE table_schema = 'schema_1'
+
 --6. Index
 ---- 6.1. Select existing indexes:
 SELECT schemaname, tablename, indexname, indexdef 
