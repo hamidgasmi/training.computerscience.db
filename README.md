@@ -1,6 +1,9 @@
 # Databases
 Notes/Queries/Scripts of databases I worked with
 
+## Basic RDBMS Concepts
+
+## PostgreSQL
 
 ## References
 
