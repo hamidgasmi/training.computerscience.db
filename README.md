@@ -11,6 +11,7 @@ Notes/Queries/Scripts of databases I worked with
 <summary>Whitepapers & Books</summary>
 
 - [SQL Indexing and Tuning](https://use-the-index-luke.com/) by Markus Winand
+- [SQL Antipatterns Avoiding the Pitfalls of Database Programming](https://pragprog.com/titles/bksqla/sql-antipatterns/) by Bill Karwin
 
 </details>
 
