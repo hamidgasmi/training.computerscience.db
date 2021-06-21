@@ -22,6 +22,8 @@ Notes/Queries/Scripts of databases I worked with
 
 <details>
 <summary>Articles</summary>
+  
+  - [Which is better one big query or multiple small queries ?](https://stackoverflow.com/questions/37381532/which-is-better-one-big-query-or-multiple-small-query)
 
 </details>
 
