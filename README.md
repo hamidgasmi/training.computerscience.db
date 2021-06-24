@@ -12,6 +12,7 @@ Notes/Queries/Scripts of databases I worked with
 
 - [SQL Indexing and Tuning](https://use-the-index-luke.com/) by Markus Winand
 - [SQL Antipatterns Avoiding the Pitfalls of Database Programming](https://pragprog.com/titles/bksqla/sql-antipatterns/) by Bill Karwin
+- [Modern SQL: Beyond Relational](https://modern-sql.com/)
 
 </details>
 
