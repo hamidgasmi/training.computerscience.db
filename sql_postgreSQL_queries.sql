@@ -27,4 +27,15 @@ select pid, usename, pg_blocking_pids(pid) as blocked_by, query as blocked_query
 from pg_stat_activity
 where cardinality(pg_blocking_pids(pid)) > 0;
 
+--9. Stat Activity
+SELECT usename, application_name, xact_start, query, * 
+  FROM pg_stat_activity
+ WHERE datname = ''
+   AND usename = ''
+   AND application_name = ''
+ORDER BY xact_start DESC
+
+SELECT * FROM pg_catalog.pg_stat_database
+SELECT * FROM pg_catalog.pg_database WHERE datname = ''
+
 
