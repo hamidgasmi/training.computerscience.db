@@ -21,3 +21,10 @@ SELECT pid FROM pg_stat_activity WHERE usename='app_user' and application_name='
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid = 9102;
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity 
  WHERE pid IN (SELECT pid FROM pg_stat_activity) WHERE datname LIKE '%hamid');
+ 
+ --8. Locks:
+select pid, usename, pg_blocking_pids(pid) as blocked_by, query as blocked_query
+from pg_stat_activity
+where cardinality(pg_blocking_pids(pid)) > 0;
+
+
