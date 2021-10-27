@@ -21,7 +21,12 @@ SELECT schemaname, tablename, indexname, indexdef
 WHERE schemaname = 'schema_1'
   AND tablename = 'table_name';
   
----- 6.2. Create new indexe:
+---- 6.2. Create new indexes:
+CREATE INDEX idx_owner_id
+    ON schema_1.record USING btree
+    (owner_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
 
 --7. Sessions:
 -- 7.1. Select Session
