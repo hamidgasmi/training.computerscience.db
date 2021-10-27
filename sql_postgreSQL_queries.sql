@@ -7,6 +7,9 @@ select * from pg_extension;
 CREATE EXTENSION "uuid-ossp";
 SELECT uuid_generate_v1(); -- It should work
 
+--1. Analyze a query performance:
+EXPLAIN ANALYZE SELECT *
+
 
 --5. Tables
 ---- 5.1. Select existing tables
