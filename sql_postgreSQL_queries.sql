@@ -27,22 +27,25 @@ CREATE INDEX idx_owner_id
     (owner_id ASC NULLS LAST)
     TABLESPACE pg_default;
 
+--7. Sequences
+---- 7.3. Alter an existing sequence value
+ALTER SEQUENCE my_schema.seq_name RESTART WITH 4700080;
 
---7. Sessions:
--- 7.1. Select Session
+--8. Sessions:
+-- 8.1. Select Session
 SELECT * FROM pg_stat_activity;
 SELECT pid FROM pg_stat_activity WHERE usename='app_user' and application_name='' and datname LIKE '%hamid';
--- 7.2. Terminate sessions
+-- 8.2. Terminate sessions
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid = 9102;
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity 
  WHERE pid IN (SELECT pid FROM pg_stat_activity) WHERE datname LIKE '%hamid');
  
- --8. Locks:
+ --9. Locks:
 select pid, usename, pg_blocking_pids(pid) as blocked_by, query as blocked_query
 from pg_stat_activity
 where cardinality(pg_blocking_pids(pid)) > 0;
 
---9. Stat Activity
+--10. Stat Activity
 SELECT usename, application_name, xact_start, query, * 
   FROM pg_stat_activity
  WHERE datname = ''
@@ -53,10 +56,8 @@ ORDER BY xact_start DESC
 SELECT * FROM pg_catalog.pg_stat_database
 SELECT * FROM pg_catalog.pg_database WHERE datname = ''
 
---10. Log slow queries
+--11. Log slow queries
 SHOW config_file;
 SELECT pg_reload_conf();
 ALTER DATABASE datasets SET log_min_duration_statement = 5000000;
 SELECT pg_sleep(10);
-
-
