@@ -1,3 +1,13 @@
+--0. Extensions:
+---- 0.1. Get available extensions
+select * from pg_available_extensions;
+---- 0.1. Check loaded extensions
+select * from pg_extension;
+---- 0.2. Load uuid extension
+CREATE EXTENSION "uuid-ossp";
+SELECT uuid_generate_v1(); -- It should work
+
+
 --5. Tables
 ---- 5.1. Select existing tables
 SELECT * 
