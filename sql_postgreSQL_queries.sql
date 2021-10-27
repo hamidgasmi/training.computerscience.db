@@ -53,7 +53,7 @@ ORDER BY xact_start DESC
 SELECT * FROM pg_catalog.pg_stat_database
 SELECT * FROM pg_catalog.pg_database WHERE datname = ''
 
---70. Log slow queries
+--10. Log slow queries
 SHOW config_file;
 SELECT pg_reload_conf();
 ALTER DATABASE datasets SET log_min_duration_statement = 5000000;
