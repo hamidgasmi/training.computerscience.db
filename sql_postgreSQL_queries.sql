@@ -26,6 +26,8 @@ CREATE INDEX idx_owner_id
     ON schema_1.record USING btree
     (owner_id ASC NULLS LAST)
     TABLESPACE pg_default;
+---- 6.3. Disable an index:
+update pg_index set indisvalid = false where indexrelid = 'my_index_name'::regclass
 
 --7. Sequences
 ---- 7.3. Alter an existing sequence value
