@@ -7,6 +7,12 @@ select * from pg_extension;
 CREATE EXTENSION "uuid-ossp";
 SELECT uuid_generate_v1(); -- It should work
 
+----0.9. Create session variable
+SET SESSION vars.entity_id = 12887; -- from a constant
+SELECT set_config('vars.entity_id', "id"::text, false) FROM schema_1.my_table WHERE guid = '63b0ab2f-2675-6668-e653-46f067fda6d5'; -- from a query
+SELECT current_setting('vars.entity_id');
+SELECT * FROM schema_1.my_table WHERE id = current_setting('vars.entity_id')::bigint;
+
 --1. Analyze a query performance:
 EXPLAIN ANALYZE SELECT *
 
