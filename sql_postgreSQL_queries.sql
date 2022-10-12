@@ -82,3 +82,6 @@ SHOW config_file;
 SELECT pg_reload_conf();
 ALTER DATABASE datasets SET log_min_duration_statement = 5000000;
 SELECT pg_sleep(10);
+
+---- 11.1.
+SELECT * FROM pg_stat_statements
