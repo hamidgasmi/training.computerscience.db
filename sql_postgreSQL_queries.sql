@@ -74,6 +74,9 @@ ORDER BY xact_start DESC
 SELECT * FROM pg_catalog.pg_stat_database
 SELECT * FROM pg_catalog.pg_database WHERE datname = ''
 
+---- 10.1. stat all tables:
+SELECT * FROM pg_stat_all_tables WHERE schemaname = 'schema_1' ORDER BY seq_tup_read DESC;
+
 --11. Log slow queries
 SHOW config_file;
 SELECT pg_reload_conf();
