@@ -85,3 +85,26 @@ SELECT pg_sleep(10);
 
 ---- 11.1.
 SELECT * FROM pg_stat_statements
+
+-- 20. Query jsonb column:
+---- 20.1. SELECT a specific data FROM JSON-field
+SELECT json_column->'name' AS name FROM schema_1.my_table;
+
+---- 20.2. Filter by a specific data FROM JSON-field
+SELECT json_column 
+  FROM schema_1.my_table 
+ WHERE json_column->>'name' LIKE '%HGA%';
+ 
+---- 20.3. Arrays in jsonb
+SELECT name, COUNT(my_column->'id') AS element_count
+  FROM schema_1.my_table AS d, jsonb_array_elements(json_column->'elements') AS my_column
+GROUP BY name
+HAVING COUNT(my_column->'id') > 1
+ORDER BY 2 DESC;
+
+---- 20.2 @> means "where the json object contains" and it allows you to search not just at the top level
+SELECT json_column
+FROM schema_1.my_table
+WHERE id = 1
+AND json_column @> '{"variables": [{"attribute_1": "attribute_1 value", "attribute_2": "attribute_2 value"} ]}';
+
