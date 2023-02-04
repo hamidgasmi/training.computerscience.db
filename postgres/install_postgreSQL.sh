@@ -8,7 +8,7 @@ docker volume create pgData
 docker pull postgres
 
 # 4. Set postgres db user and password
-docker run -d -p 5432:5432 --name postgres --mount type=volume,source=pgData,target=/var/lib/postgresql/data -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Postgres postgres 
+docker run -d -p 5432:5432 --name postgres --mount type=volume,source=pgData,target=/var/lib/postgresql/data -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Postgres postgres
 
 # 5. Start / Stop container:
 docker start postgres
